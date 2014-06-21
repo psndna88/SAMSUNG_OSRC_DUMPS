@@ -809,8 +809,9 @@ int __pm_runtime_resume(struct device *dev, int rpmflags)
 
 	might_sleep_if(!(rpmflags & RPM_ASYNC) && !dev->power.irq_safe);
 
-	if (rpmflags & RPM_GET_PUT)
+	if (rpmflags & RPM_GET_PUT) {
 		atomic_inc(&dev->power.usage_count);
+	}
 
 	spin_lock_irqsave(&dev->power.lock, flags);
 	retval = rpm_resume(dev, rpmflags);
@@ -1166,8 +1167,9 @@ static void update_autosuspend(struct device *dev, int old_delay, int old_use)
 	else {
 
 		/* If it used to be prevented then allow it. */
-		if (old_use && old_delay < 0)
+		if (old_use && old_delay < 0) {
 			atomic_dec(&dev->power.usage_count);
+		}
 
 		/* Maybe we can autosuspend now. */
 		rpm_idle(dev, RPM_AUTO);

@@ -639,7 +639,7 @@ static int rmnet_usb_ctrl_write(struct rmnet_ctrl_dev *dev, char *buf,
 				dev_err(dev->devicep, "done\n");
 			else
 				dev_err(dev->devicep, "failed. usage_count : %d\n",
-						atomic_read(&udev->dev.power.usage_count));
+							atomic_read(&udev->dev.power.usage_count));
 		}
 		spin_unlock_irqrestore(&dev->rx_lock, flag);
 	/* } */
