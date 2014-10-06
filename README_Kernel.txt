@@ -1,5 +1,5 @@
 ################################################################################
-HOW TO BUILD KERNEL FOR GT-N7100_ALL
+HOW TO BUILD KERNEL FOR GT-N7100_SWA
 
 1. How to Build
 	- get Toolchain
@@ -20,5 +20,5 @@ HOW TO BUILD KERNEL FOR GT-N7100_ALL
 4. How to make .tar binary for downloading into target.
 	- change current directory to Kernel/arch/arm/boot
 	- type following command
-	$ tar cvf GT-N7100_ALL.tar zImage
+	$ tar cvf GT-N7100_SWA.tar zImage
 ################################################################################
